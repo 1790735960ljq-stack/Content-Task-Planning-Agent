@@ -1,0 +1,8 @@
+{
+  "theme": "读书日",
+  "budget": 10,
+  "deadline": "2026-12-31",
+  "fail_tool": null,
+  "max_steps": 8,
+  "mode": "live"
+}

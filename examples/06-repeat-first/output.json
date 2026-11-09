@@ -1,0 +1,601 @@
+{
+  "status": "completed",
+  "reason": null,
+  "reason_text": "已在预算和截止时间内保存方案",
+  "gap": null,
+  "model_mode": "live",
+  "proves_model_decision": true,
+  "llm_model": "deepseek-v4.1-flash-1017",
+  "prompt_id": "skeleton-v1",
+  "input": {
+    "theme": "读书日",
+    "budget": 10,
+    "deadline": "2026-12-31",
+    "fail_tool": null,
+    "max_steps": 8,
+    "mode": "live"
+  },
+  "task_plan": [
+    {
+      "tool": "search_assets",
+      "label": "检索素材",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 1,
+          "tool": "search_assets",
+          "label": "检索素材",
+          "args": {
+            "theme": "读书日"
+          },
+          "status": "succeeded",
+          "result_summary": "没有该主题的专用素材，返回通用素材：通用字幕模板、活动海报底图",
+          "result": {
+            "ok": true,
+            "tool": "search_assets",
+            "assets": [
+              {
+                "id": "asset-caption",
+                "title": "通用字幕模板",
+                "themes": [
+                  "全部"
+                ],
+                "note": "标题、字幕和片尾"
+              },
+              {
+                "id": "asset-poster",
+                "title": "活动海报底图",
+                "themes": [
+                  "全部"
+                ],
+                "note": "可用于精简方案的单张海报"
+              }
+            ],
+            "summary": "没有该主题的专用素材，返回通用素材：通用字幕模板、活动海报底图"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 2,
+          "tool": "generate_script",
+          "label": "生成脚本",
+          "args": {
+            "theme": "读书日",
+            "variant": "standard"
+          },
+          "status": "succeeded",
+          "result_summary": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+          "result": {
+            "ok": true,
+            "tool": "generate_script",
+            "variant": "standard",
+            "script": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+            "summary": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+          }
+        },
+        {
+          "index": 4,
+          "tool": "generate_script",
+          "label": "生成脚本",
+          "args": {
+            "theme": "读书日",
+            "variant": "lean"
+          },
+          "status": "succeeded",
+          "result_summary": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+          "result": {
+            "ok": true,
+            "tool": "generate_script",
+            "variant": "lean",
+            "script": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+            "summary": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 3,
+          "tool": "estimate_cost",
+          "label": "估算成本",
+          "args": {
+            "variant": "standard"
+          },
+          "status": "succeeded",
+          "result_summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。超出预算 2。可以在截止时间内完成。本工具不会自动更换方案。",
+          "result": {
+            "ok": true,
+            "tool": "estimate_cost",
+            "summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。超出预算 2。可以在截止时间内完成。本工具不会自动更换方案。",
+            "variant": "standard",
+            "label": "标准方案",
+            "cost": 12,
+            "duration_days": 5,
+            "line_items": [
+              {
+                "name": "素材整理",
+                "amount": 2
+              },
+              {
+                "name": "脚本撰写",
+                "amount": 3
+              },
+              {
+                "name": "制作与发布",
+                "amount": 7
+              }
+            ],
+            "days_left": 52,
+            "over_budget": true,
+            "over_deadline": false,
+            "budget_gap": 2,
+            "days_gap": 0,
+            "unit": "模拟单位"
+          }
+        },
+        {
+          "index": 5,
+          "tool": "estimate_cost",
+          "label": "估算成本",
+          "args": {
+            "variant": "lean"
+          },
+          "status": "succeeded",
+          "result_summary": "精简方案估算 8 模拟单位，耗时 2 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+          "result": {
+            "ok": true,
+            "tool": "estimate_cost",
+            "summary": "精简方案估算 8 模拟单位，耗时 2 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+            "variant": "lean",
+            "label": "精简方案",
+            "cost": 8,
+            "duration_days": 2,
+            "line_items": [
+              {
+                "name": "素材整理",
+                "amount": 1
+              },
+              {
+                "name": "脚本撰写",
+                "amount": 2
+              },
+              {
+                "name": "制作与发布",
+                "amount": 5
+              }
+            ],
+            "days_left": 52,
+            "over_budget": false,
+            "over_deadline": false,
+            "budget_gap": 0,
+            "days_gap": 0,
+            "unit": "模拟单位"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "save_plan",
+      "label": "保存方案",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 6,
+          "tool": "save_plan",
+          "label": "保存方案",
+          "args": {
+            "variant": "lean"
+          },
+          "status": "succeeded",
+          "result_summary": "已保存精简方案，方案编号 plan-0001，费用 8。",
+          "result": {
+            "ok": true,
+            "tool": "save_plan",
+            "created": true,
+            "plan": {
+              "plan_id": "plan-0001",
+              "theme": "读书日",
+              "variant": "lean",
+              "label": "精简方案",
+              "script": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+              "cost": 8,
+              "duration_days": 2,
+              "line_items": [
+                {
+                  "name": "素材整理",
+                  "amount": 1
+                },
+                {
+                  "name": "脚本撰写",
+                  "amount": 2
+                },
+                {
+                  "name": "制作与发布",
+                  "amount": 5
+                }
+              ],
+              "budget": 10,
+              "deadline": "2026-12-31"
+            },
+            "total_cost": 8,
+            "summary": "已保存精简方案，方案编号 plan-0001，费用 8。"
+          }
+        }
+      ]
+    }
+  ],
+  "step_log": [
+    {
+      "index": 1,
+      "tool": "search_assets",
+      "label": "检索素材",
+      "args": {
+        "theme": "读书日"
+      },
+      "status": "succeeded",
+      "result_summary": "没有该主题的专用素材，返回通用素材：通用字幕模板、活动海报底图",
+      "result": {
+        "ok": true,
+        "tool": "search_assets",
+        "assets": [
+          {
+            "id": "asset-caption",
+            "title": "通用字幕模板",
+            "themes": [
+              "全部"
+            ],
+            "note": "标题、字幕和片尾"
+          },
+          {
+            "id": "asset-poster",
+            "title": "活动海报底图",
+            "themes": [
+              "全部"
+            ],
+            "note": "可用于精简方案的单张海报"
+          }
+        ],
+        "summary": "没有该主题的专用素材，返回通用素材：通用字幕模板、活动海报底图"
+      }
+    },
+    {
+      "index": 2,
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "args": {
+        "theme": "读书日",
+        "variant": "standard"
+      },
+      "status": "succeeded",
+      "result_summary": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+      "result": {
+        "ok": true,
+        "tool": "generate_script",
+        "variant": "standard",
+        "script": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+        "summary": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+      }
+    },
+    {
+      "index": 3,
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "args": {
+        "variant": "standard"
+      },
+      "status": "succeeded",
+      "result_summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。超出预算 2。可以在截止时间内完成。本工具不会自动更换方案。",
+      "result": {
+        "ok": true,
+        "tool": "estimate_cost",
+        "summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。超出预算 2。可以在截止时间内完成。本工具不会自动更换方案。",
+        "variant": "standard",
+        "label": "标准方案",
+        "cost": 12,
+        "duration_days": 5,
+        "line_items": [
+          {
+            "name": "素材整理",
+            "amount": 2
+          },
+          {
+            "name": "脚本撰写",
+            "amount": 3
+          },
+          {
+            "name": "制作与发布",
+            "amount": 7
+          }
+        ],
+        "days_left": 52,
+        "over_budget": true,
+        "over_deadline": false,
+        "budget_gap": 2,
+        "days_gap": 0,
+        "unit": "模拟单位"
+      }
+    },
+    {
+      "index": 4,
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "args": {
+        "theme": "读书日",
+        "variant": "lean"
+      },
+      "status": "succeeded",
+      "result_summary": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+      "result": {
+        "ok": true,
+        "tool": "generate_script",
+        "variant": "lean",
+        "script": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+        "summary": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。"
+      }
+    },
+    {
+      "index": 5,
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "args": {
+        "variant": "lean"
+      },
+      "status": "succeeded",
+      "result_summary": "精简方案估算 8 模拟单位，耗时 2 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+      "result": {
+        "ok": true,
+        "tool": "estimate_cost",
+        "summary": "精简方案估算 8 模拟单位，耗时 2 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+        "variant": "lean",
+        "label": "精简方案",
+        "cost": 8,
+        "duration_days": 2,
+        "line_items": [
+          {
+            "name": "素材整理",
+            "amount": 1
+          },
+          {
+            "name": "脚本撰写",
+            "amount": 2
+          },
+          {
+            "name": "制作与发布",
+            "amount": 5
+          }
+        ],
+        "days_left": 52,
+        "over_budget": false,
+        "over_deadline": false,
+        "budget_gap": 0,
+        "days_gap": 0,
+        "unit": "模拟单位"
+      }
+    },
+    {
+      "index": 6,
+      "tool": "save_plan",
+      "label": "保存方案",
+      "args": {
+        "variant": "lean"
+      },
+      "status": "succeeded",
+      "result_summary": "已保存精简方案，方案编号 plan-0001，费用 8。",
+      "result": {
+        "ok": true,
+        "tool": "save_plan",
+        "created": true,
+        "plan": {
+          "plan_id": "plan-0001",
+          "theme": "读书日",
+          "variant": "lean",
+          "label": "精简方案",
+          "script": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+          "cost": 8,
+          "duration_days": 2,
+          "line_items": [
+            {
+              "name": "素材整理",
+              "amount": 1
+            },
+            {
+              "name": "脚本撰写",
+              "amount": 2
+            },
+            {
+              "name": "制作与发布",
+              "amount": 5
+            }
+          ],
+          "budget": 10,
+          "deadline": "2026-12-31"
+        },
+        "total_cost": 8,
+        "summary": "已保存精简方案，方案编号 plan-0001，费用 8。"
+      }
+    }
+  ],
+  "tool_results": {
+    "assets": [
+      {
+        "id": "asset-caption",
+        "title": "通用字幕模板",
+        "themes": [
+          "全部"
+        ],
+        "note": "标题、字幕和片尾"
+      },
+      {
+        "id": "asset-poster",
+        "title": "活动海报底图",
+        "themes": [
+          "全部"
+        ],
+        "note": "可用于精简方案的单张海报"
+      }
+    ],
+    "scripts": {
+      "standard": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+      "lean": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。"
+    },
+    "estimates": {
+      "standard": {
+        "variant": "standard",
+        "label": "标准方案",
+        "cost": 12,
+        "duration_days": 5,
+        "line_items": [
+          {
+            "name": "素材整理",
+            "amount": 2
+          },
+          {
+            "name": "脚本撰写",
+            "amount": 3
+          },
+          {
+            "name": "制作与发布",
+            "amount": 7
+          }
+        ],
+        "days_left": 52,
+        "over_budget": true,
+        "over_deadline": false,
+        "budget_gap": 2,
+        "days_gap": 0,
+        "unit": "模拟单位"
+      },
+      "lean": {
+        "variant": "lean",
+        "label": "精简方案",
+        "cost": 8,
+        "duration_days": 2,
+        "line_items": [
+          {
+            "name": "素材整理",
+            "amount": 1
+          },
+          {
+            "name": "脚本撰写",
+            "amount": 2
+          },
+          {
+            "name": "制作与发布",
+            "amount": 5
+          }
+        ],
+        "days_left": 52,
+        "over_budget": false,
+        "over_deadline": false,
+        "budget_gap": 0,
+        "days_gap": 0,
+        "unit": "模拟单位"
+      }
+    }
+  },
+  "total_cost": 8,
+  "saved_plan": {
+    "plan_id": "plan-0001",
+    "theme": "读书日",
+    "variant": "lean",
+    "label": "精简方案",
+    "script": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+    "cost": 8,
+    "duration_days": 2,
+    "line_items": [
+      {
+        "name": "素材整理",
+        "amount": 1
+      },
+      {
+        "name": "脚本撰写",
+        "amount": 2
+      },
+      {
+        "name": "制作与发布",
+        "amount": 5
+      }
+    ],
+    "budget": 10,
+    "deadline": "2026-12-31"
+  },
+  "plan_reused": false,
+  "final_message": "已完成读书日内容方案规划，最终保存的是**精简方案（plan-0001）**。\n\n**执行过程**\n1. **素材检索**：无读书日专用素材，可用通用字幕模板、活动海报底图。\n2. **标准方案**：脚本生成成功，估算费用 12 模拟单位、耗时 5 天，超出预算 2 个单位（时间充裕）。按规则不予保存。\n3. **精简方案**：脚本生成成功，估算费用 8 模拟单位、耗时 2 天，未超预算，距截止还有 52 天。估算通过后保存成功。\n\n**最终方案（plan-0001）**\n- 内容：1 条短视频，使用通用字幕模板 + 活动海报底图，压缩制作环节\n- 总费用：8 / 10 模拟单位（素材整理 1 + 脚本撰写 2 + 制作与发布 5）\n- 耗时：2 天，截止 2026-12-31，时间充足\n- 预算结余：2 模拟单位\n\n**提示**：由于缺少读书日专用素材，成品视觉会偏通用。若希望更有主题感，可在结余的 2 个单位内补充自制素材；另外标准方案的 3 条内容（预热/正片/复盘）因超预算未采用，如需更完整的投放节奏，需追加约 2 个单位预算。",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "search_assets",
+      "args": {
+        "theme": "读书日"
+      },
+      "result_summary": "没有该主题的专用素材，返回通用素材：通用字幕模板、活动海报底图",
+      "next_action": "generate_script(theme=读书日, variant=standard)",
+      "reason": "我先检索读书日主题的可用素材。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "args": {
+        "theme": "读书日",
+        "variant": "standard"
+      },
+      "result_summary": "【标准方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+      "next_action": "estimate_cost(variant=standard)",
+      "reason": "素材检索成功，但只有通用素材，没有读书日专用素材；接下来先生成 standard 脚本。"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "args": {
+        "variant": "standard"
+      },
+      "result_summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。超出预算 2。可以在截止时间内完成。本工具不会自动更换方案。",
+      "next_action": "generate_script(theme=读书日, variant=lean)",
+      "reason": "standard 脚本已生成成功；现在估算它的费用和耗时。"
+    },
+    {
+      "step": 4,
+      "tool": "generate_script",
+      "args": {
+        "theme": "读书日",
+        "variant": "lean"
+      },
+      "result_summary": "【精简方案】主题《读书日》。使用素材：通用字幕模板、活动海报底图。产出 1 条短视频，压缩制作环节以控制费用和耗时。",
+      "next_action": "estimate_cost(variant=lean)",
+      "reason": "standard 方案费用为 12 模拟单位，超出预算 2，因此不保存；按流程改用精简方案。"
+    },
+    {
+      "step": 5,
+      "tool": "estimate_cost",
+      "args": {
+        "variant": "lean"
+      },
+      "result_summary": "精简方案估算 8 模拟单位，耗时 2 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+      "next_action": "save_plan(variant=lean)",
+      "reason": "精简脚本已生成，现在估算其费用和耗时。"
+    },
+    {
+      "step": 6,
+      "tool": "save_plan",
+      "args": {
+        "variant": "lean"
+      },
+      "result_summary": "已保存精简方案，方案编号 plan-0001，费用 8。",
+      "next_action": "结束",
+      "reason": "精简方案为 8 模拟单位、耗时 2 天，在预算与截止时间内，符合保存条件，现在保存。"
+    }
+  ],
+  "tool_calls": 6,
+  "max_tool_calls": 8,
+  "today": "2026-11-09"
+}

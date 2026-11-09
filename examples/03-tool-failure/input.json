@@ -1,0 +1,8 @@
+{
+  "theme": "社团招新",
+  "budget": 15,
+  "deadline": "2026-12-31",
+  "fail_tool": "generate_script",
+  "max_steps": 8,
+  "mode": "live"
+}

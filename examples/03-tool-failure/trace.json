@@ -1,0 +1,54 @@
+[
+  {
+    "step": 1,
+    "tool": "search_assets",
+    "args": {
+      "theme": "社团招新"
+    },
+    "result_summary": "检索到 1 条主题素材：新生采访",
+    "next_action": "generate_script(theme=社团招新, variant=standard)",
+    "reason": "我先检索主题素材，确认可用内容基础。"
+  },
+  {
+    "step": 2,
+    "tool": "generate_script",
+    "args": {
+      "theme": "社团招新",
+      "variant": "standard"
+    },
+    "result_summary": "脚本生成服务暂时失败",
+    "next_action": "generate_script(theme=社团招新, variant=standard)",
+    "reason": "素材已就绪，其中包含“新生采访”主题素材。现在先生成 standard 方案脚本。"
+  },
+  {
+    "step": 3,
+    "tool": "generate_script",
+    "args": {
+      "theme": "社团招新",
+      "variant": "standard"
+    },
+    "result_summary": "【标准方案】主题《社团招新》。使用素材：新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+    "next_action": "estimate_cost(variant=standard)",
+    "reason": "standard 脚本生成失败，原因是服务临时故障，可以重试；我重试一次同一方案。"
+  },
+  {
+    "step": 4,
+    "tool": "estimate_cost",
+    "args": {
+      "variant": "standard"
+    },
+    "result_summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+    "next_action": "save_plan(variant=standard)",
+    "reason": "standard 脚本已生成成功，现在估算费用与耗时。"
+  },
+  {
+    "step": 5,
+    "tool": "save_plan",
+    "args": {
+      "variant": "standard"
+    },
+    "result_summary": "已保存标准方案，方案编号 plan-0001，费用 12。",
+    "next_action": "结束",
+    "reason": "standard 方案费用 12 单位、耗时 5 天，均未超限，符合保存条件，现在保存。"
+  }
+]

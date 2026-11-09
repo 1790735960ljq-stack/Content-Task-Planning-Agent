@@ -1,0 +1,490 @@
+{
+  "status": "completed",
+  "reason": null,
+  "reason_text": "已在预算和截止时间内保存方案",
+  "gap": null,
+  "model_mode": "live",
+  "proves_model_decision": true,
+  "llm_model": "deepseek-v4.1-flash-1017",
+  "prompt_id": "skeleton-v1",
+  "input": {
+    "theme": "开学季",
+    "budget": 15,
+    "deadline": "2026-12-31",
+    "fail_tool": null,
+    "max_steps": 8,
+    "mode": "live"
+  },
+  "task_plan": [
+    {
+      "tool": "search_assets",
+      "label": "检索素材",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 1,
+          "tool": "search_assets",
+          "label": "检索素材",
+          "args": {
+            "theme": "开学季"
+          },
+          "status": "succeeded",
+          "result_summary": "检索到 2 条主题素材：教室实拍、新生采访",
+          "result": {
+            "ok": true,
+            "tool": "search_assets",
+            "assets": [
+              {
+                "id": "asset-classroom",
+                "title": "教室实拍",
+                "themes": [
+                  "开学季"
+                ],
+                "note": "校园空镜，可直接剪进预热视频"
+              },
+              {
+                "id": "asset-interview",
+                "title": "新生采访",
+                "themes": [
+                  "开学季",
+                  "社团招新"
+                ],
+                "note": "三段合成采访"
+              },
+              {
+                "id": "asset-caption",
+                "title": "通用字幕模板",
+                "themes": [
+                  "全部"
+                ],
+                "note": "标题、字幕和片尾"
+              },
+              {
+                "id": "asset-poster",
+                "title": "活动海报底图",
+                "themes": [
+                  "全部"
+                ],
+                "note": "可用于精简方案的单张海报"
+              }
+            ],
+            "summary": "检索到 2 条主题素材：教室实拍、新生采访"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 2,
+          "tool": "generate_script",
+          "label": "生成脚本",
+          "args": {
+            "theme": "开学季",
+            "variant": "standard"
+          },
+          "status": "succeeded",
+          "result_summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+          "result": {
+            "ok": true,
+            "tool": "generate_script",
+            "variant": "standard",
+            "script": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+            "summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 3,
+          "tool": "estimate_cost",
+          "label": "估算成本",
+          "args": {
+            "variant": "standard"
+          },
+          "status": "succeeded",
+          "result_summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+          "result": {
+            "ok": true,
+            "tool": "estimate_cost",
+            "summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+            "variant": "standard",
+            "label": "标准方案",
+            "cost": 12,
+            "duration_days": 5,
+            "line_items": [
+              {
+                "name": "素材整理",
+                "amount": 2
+              },
+              {
+                "name": "脚本撰写",
+                "amount": 3
+              },
+              {
+                "name": "制作与发布",
+                "amount": 7
+              }
+            ],
+            "days_left": 52,
+            "over_budget": false,
+            "over_deadline": false,
+            "budget_gap": 0,
+            "days_gap": 0,
+            "unit": "模拟单位"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "save_plan",
+      "label": "保存方案",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 4,
+          "tool": "save_plan",
+          "label": "保存方案",
+          "args": {
+            "variant": "standard"
+          },
+          "status": "succeeded",
+          "result_summary": "已保存标准方案，方案编号 plan-0001，费用 12。",
+          "result": {
+            "ok": true,
+            "tool": "save_plan",
+            "created": true,
+            "plan": {
+              "plan_id": "plan-0001",
+              "theme": "开学季",
+              "variant": "standard",
+              "label": "标准方案",
+              "script": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+              "cost": 12,
+              "duration_days": 5,
+              "line_items": [
+                {
+                  "name": "素材整理",
+                  "amount": 2
+                },
+                {
+                  "name": "脚本撰写",
+                  "amount": 3
+                },
+                {
+                  "name": "制作与发布",
+                  "amount": 7
+                }
+              ],
+              "budget": 15,
+              "deadline": "2026-12-31"
+            },
+            "total_cost": 12,
+            "summary": "已保存标准方案，方案编号 plan-0001，费用 12。"
+          }
+        }
+      ]
+    }
+  ],
+  "step_log": [
+    {
+      "index": 1,
+      "tool": "search_assets",
+      "label": "检索素材",
+      "args": {
+        "theme": "开学季"
+      },
+      "status": "succeeded",
+      "result_summary": "检索到 2 条主题素材：教室实拍、新生采访",
+      "result": {
+        "ok": true,
+        "tool": "search_assets",
+        "assets": [
+          {
+            "id": "asset-classroom",
+            "title": "教室实拍",
+            "themes": [
+              "开学季"
+            ],
+            "note": "校园空镜，可直接剪进预热视频"
+          },
+          {
+            "id": "asset-interview",
+            "title": "新生采访",
+            "themes": [
+              "开学季",
+              "社团招新"
+            ],
+            "note": "三段合成采访"
+          },
+          {
+            "id": "asset-caption",
+            "title": "通用字幕模板",
+            "themes": [
+              "全部"
+            ],
+            "note": "标题、字幕和片尾"
+          },
+          {
+            "id": "asset-poster",
+            "title": "活动海报底图",
+            "themes": [
+              "全部"
+            ],
+            "note": "可用于精简方案的单张海报"
+          }
+        ],
+        "summary": "检索到 2 条主题素材：教室实拍、新生采访"
+      }
+    },
+    {
+      "index": 2,
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "args": {
+        "theme": "开学季",
+        "variant": "standard"
+      },
+      "status": "succeeded",
+      "result_summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+      "result": {
+        "ok": true,
+        "tool": "generate_script",
+        "variant": "standard",
+        "script": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+        "summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+      }
+    },
+    {
+      "index": 3,
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "args": {
+        "variant": "standard"
+      },
+      "status": "succeeded",
+      "result_summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+      "result": {
+        "ok": true,
+        "tool": "estimate_cost",
+        "summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+        "variant": "standard",
+        "label": "标准方案",
+        "cost": 12,
+        "duration_days": 5,
+        "line_items": [
+          {
+            "name": "素材整理",
+            "amount": 2
+          },
+          {
+            "name": "脚本撰写",
+            "amount": 3
+          },
+          {
+            "name": "制作与发布",
+            "amount": 7
+          }
+        ],
+        "days_left": 52,
+        "over_budget": false,
+        "over_deadline": false,
+        "budget_gap": 0,
+        "days_gap": 0,
+        "unit": "模拟单位"
+      }
+    },
+    {
+      "index": 4,
+      "tool": "save_plan",
+      "label": "保存方案",
+      "args": {
+        "variant": "standard"
+      },
+      "status": "succeeded",
+      "result_summary": "已保存标准方案，方案编号 plan-0001，费用 12。",
+      "result": {
+        "ok": true,
+        "tool": "save_plan",
+        "created": true,
+        "plan": {
+          "plan_id": "plan-0001",
+          "theme": "开学季",
+          "variant": "standard",
+          "label": "标准方案",
+          "script": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+          "cost": 12,
+          "duration_days": 5,
+          "line_items": [
+            {
+              "name": "素材整理",
+              "amount": 2
+            },
+            {
+              "name": "脚本撰写",
+              "amount": 3
+            },
+            {
+              "name": "制作与发布",
+              "amount": 7
+            }
+          ],
+          "budget": 15,
+          "deadline": "2026-12-31"
+        },
+        "total_cost": 12,
+        "summary": "已保存标准方案，方案编号 plan-0001，费用 12。"
+      }
+    }
+  ],
+  "tool_results": {
+    "assets": [
+      {
+        "id": "asset-classroom",
+        "title": "教室实拍",
+        "themes": [
+          "开学季"
+        ],
+        "note": "校园空镜，可直接剪进预热视频"
+      },
+      {
+        "id": "asset-interview",
+        "title": "新生采访",
+        "themes": [
+          "开学季",
+          "社团招新"
+        ],
+        "note": "三段合成采访"
+      },
+      {
+        "id": "asset-caption",
+        "title": "通用字幕模板",
+        "themes": [
+          "全部"
+        ],
+        "note": "标题、字幕和片尾"
+      },
+      {
+        "id": "asset-poster",
+        "title": "活动海报底图",
+        "themes": [
+          "全部"
+        ],
+        "note": "可用于精简方案的单张海报"
+      }
+    ],
+    "scripts": {
+      "standard": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+    },
+    "estimates": {
+      "standard": {
+        "variant": "standard",
+        "label": "标准方案",
+        "cost": 12,
+        "duration_days": 5,
+        "line_items": [
+          {
+            "name": "素材整理",
+            "amount": 2
+          },
+          {
+            "name": "脚本撰写",
+            "amount": 3
+          },
+          {
+            "name": "制作与发布",
+            "amount": 7
+          }
+        ],
+        "days_left": 52,
+        "over_budget": false,
+        "over_deadline": false,
+        "budget_gap": 0,
+        "days_gap": 0,
+        "unit": "模拟单位"
+      }
+    }
+  },
+  "total_cost": 12,
+  "saved_plan": {
+    "plan_id": "plan-0001",
+    "theme": "开学季",
+    "variant": "standard",
+    "label": "标准方案",
+    "script": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+    "cost": 12,
+    "duration_days": 5,
+    "line_items": [
+      {
+        "name": "素材整理",
+        "amount": 2
+      },
+      {
+        "name": "脚本撰写",
+        "amount": 3
+      },
+      {
+        "name": "制作与发布",
+        "amount": 7
+      }
+    ],
+    "budget": 15,
+    "deadline": "2026-12-31"
+  },
+  "plan_reused": false,
+  "final_message": "## 开学季内容活动方案：已完成并保存\n\n**方案编号：plan-0001（标准方案）**\n\n| 项目 | 结果 |\n|---|---|\n| 主题 | 开学季 |\n| 使用素材 | 教室实拍、新生采访、通用字幕模板、活动海报底图 |\n| 产出内容 | 预热、正片、复盘共 3 条 |\n| 费用 | 12 模拟单位（预算 15，剩余 3） |\n| 耗时 | 5 天（距截止 2026-12-31 尚有 52 天） |\n| 超预算 / 超期 | 均无 |\n\n**费用明细**：素材整理 2 + 脚本撰写 3 + 制作与发布 7 = 12 模拟单位。\n\n**执行说明**：素材检索成功；标准方案脚本生成成功且估算未超预算、未超期，因此按规则直接保存，无需启用精简方案（lean）。最终费用以成功保存的该方案为准，即 12 模拟单位。\n\n后续如需压缩成本或改为单张海报的轻量投放，可再生成精简方案另行估算，本次不叠加计费。",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "search_assets",
+      "args": {
+        "theme": "开学季"
+      },
+      "result_summary": "检索到 2 条主题素材：教室实拍、新生采访",
+      "next_action": "generate_script(theme=开学季, variant=standard)",
+      "reason": "我先检索“开学季”主题的可用素材，为后续生成脚本提供依据。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "args": {
+        "theme": "开学季",
+        "variant": "standard"
+      },
+      "result_summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+      "next_action": "estimate_cost(variant=standard)",
+      "reason": "素材已就绪：教室实拍、新生采访以及通用字幕模板和海报底图。现在生成标准方案脚本。"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "args": {
+        "variant": "standard"
+      },
+      "result_summary": "标准方案估算 12 模拟单位，耗时 5 天，距离截止还有 52 天。未超出预算。可以在截止时间内完成。本工具不会自动更换方案。",
+      "next_action": "save_plan(variant=standard)",
+      "reason": "标准方案脚本已生成成功，包含 3 条内容。现在估算其费用与耗时，以判断是否在 15 单位预算和截止时间内。"
+    },
+    {
+      "step": 4,
+      "tool": "save_plan",
+      "args": {
+        "variant": "standard"
+      },
+      "result_summary": "已保存标准方案，方案编号 plan-0001，费用 12。",
+      "next_action": "结束",
+      "reason": "标准方案估算为 12 模拟单位、耗时 5 天，未超预算且远早于截止时间，因此满足保存条件，可以保存。"
+    }
+  ],
+  "tool_calls": 4,
+  "max_tool_calls": 8,
+  "today": "2026-11-09"
+}

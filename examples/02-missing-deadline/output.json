@@ -1,0 +1,58 @@
+{
+  "status": "incomplete",
+  "reason": "missing_deadline",
+  "reason_text": "缺少截止时间，未开始规划",
+  "gap": null,
+  "model_mode": null,
+  "proves_model_decision": false,
+  "llm_model": null,
+  "prompt_id": null,
+  "input": {
+    "theme": "开学季",
+    "budget": 10,
+    "deadline": null,
+    "fail_tool": null,
+    "max_steps": 8,
+    "mode": "live"
+  },
+  "task_plan": [
+    {
+      "tool": "search_assets",
+      "label": "检索素材",
+      "status": "pending",
+      "attempts": []
+    },
+    {
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "status": "pending",
+      "attempts": []
+    },
+    {
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "status": "pending",
+      "attempts": []
+    },
+    {
+      "tool": "save_plan",
+      "label": "保存方案",
+      "status": "pending",
+      "attempts": []
+    }
+  ],
+  "step_log": [],
+  "tool_results": {
+    "assets": null,
+    "scripts": {},
+    "estimates": {}
+  },
+  "total_cost": 0,
+  "saved_plan": null,
+  "plan_reused": false,
+  "final_message": "缺少截止时间，未开始规划",
+  "trace": [],
+  "tool_calls": 0,
+  "max_tool_calls": 8,
+  "today": null
+}

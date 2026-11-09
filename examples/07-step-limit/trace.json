@@ -1,0 +1,33 @@
+[
+  {
+    "step": 1,
+    "tool": "search_assets",
+    "args": {
+      "theme": "开学季"
+    },
+    "result_summary": "检索到 2 条主题素材：教室实拍、新生采访",
+    "next_action": "generate_script(theme=开学季, variant=standard)",
+    "reason": "还没有素材，先检索。"
+  },
+  {
+    "step": 2,
+    "tool": "generate_script",
+    "args": {
+      "theme": "开学季",
+      "variant": "standard"
+    },
+    "result_summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+    "next_action": "estimate_cost(variant=standard)",
+    "reason": "按执行骨架先生成标准方案脚本。"
+  },
+  {
+    "step": 3,
+    "tool": "estimate_cost",
+    "args": {
+      "variant": "standard"
+    },
+    "result_summary": "已达到工具调用次数上限，任务未完成",
+    "next_action": "结束",
+    "reason": "标准脚本已生成，估算费用和耗时。"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "asset-classroom",
+    "title": "教室实拍",
+    "themes": ["开学季"],
+    "note": "校园空镜，可直接剪进预热视频"
+  },
+  {
+    "id": "asset-interview",
+    "title": "新生采访",
+    "themes": ["开学季", "社团招新"],
+    "note": "三段合成采访"
+  },
+  {
+    "id": "asset-caption",
+    "title": "通用字幕模板",
+    "themes": ["全部"],
+    "note": "标题、字幕和片尾"
+  },
+  {
+    "id": "asset-poster",
+    "title": "活动海报底图",
+    "themes": ["全部"],
+    "note": "可用于精简方案的单张海报"
+  }
+]

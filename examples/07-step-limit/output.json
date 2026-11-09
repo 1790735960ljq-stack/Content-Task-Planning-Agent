@@ -1,0 +1,302 @@
+{
+  "status": "incomplete",
+  "reason": "max_steps",
+  "reason_text": "达到工具调用次数上限，任务未完成",
+  "gap": null,
+  "model_mode": "mock",
+  "proves_model_decision": false,
+  "llm_model": "flow-mock",
+  "prompt_id": "skeleton-v1",
+  "input": {
+    "theme": "开学季",
+    "budget": 15,
+    "deadline": "2026-12-31",
+    "fail_tool": null,
+    "max_steps": 2,
+    "mode": "mock"
+  },
+  "task_plan": [
+    {
+      "tool": "search_assets",
+      "label": "检索素材",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 1,
+          "tool": "search_assets",
+          "label": "检索素材",
+          "args": {
+            "theme": "开学季"
+          },
+          "status": "succeeded",
+          "result_summary": "检索到 2 条主题素材：教室实拍、新生采访",
+          "result": {
+            "ok": true,
+            "tool": "search_assets",
+            "assets": [
+              {
+                "id": "asset-classroom",
+                "title": "教室实拍",
+                "themes": [
+                  "开学季"
+                ],
+                "note": "校园空镜，可直接剪进预热视频"
+              },
+              {
+                "id": "asset-interview",
+                "title": "新生采访",
+                "themes": [
+                  "开学季",
+                  "社团招新"
+                ],
+                "note": "三段合成采访"
+              },
+              {
+                "id": "asset-caption",
+                "title": "通用字幕模板",
+                "themes": [
+                  "全部"
+                ],
+                "note": "标题、字幕和片尾"
+              },
+              {
+                "id": "asset-poster",
+                "title": "活动海报底图",
+                "themes": [
+                  "全部"
+                ],
+                "note": "可用于精简方案的单张海报"
+              }
+            ],
+            "summary": "检索到 2 条主题素材：教室实拍、新生采访"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "status": "succeeded",
+      "attempts": [
+        {
+          "index": 2,
+          "tool": "generate_script",
+          "label": "生成脚本",
+          "args": {
+            "theme": "开学季",
+            "variant": "standard"
+          },
+          "status": "succeeded",
+          "result_summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+          "result": {
+            "ok": true,
+            "tool": "generate_script",
+            "variant": "standard",
+            "script": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+            "summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "status": "failed",
+      "attempts": [
+        {
+          "index": 3,
+          "tool": "estimate_cost",
+          "label": "估算成本",
+          "args": {
+            "variant": "standard"
+          },
+          "status": "failed",
+          "result_summary": "已达到工具调用次数上限，任务未完成",
+          "result": {
+            "ok": false,
+            "tool": "estimate_cost",
+            "retryable": false,
+            "stop": true,
+            "error": "已达到工具调用次数上限，任务未完成",
+            "summary": "已达到工具调用次数上限，任务未完成"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "save_plan",
+      "label": "保存方案",
+      "status": "pending",
+      "attempts": []
+    }
+  ],
+  "step_log": [
+    {
+      "index": 1,
+      "tool": "search_assets",
+      "label": "检索素材",
+      "args": {
+        "theme": "开学季"
+      },
+      "status": "succeeded",
+      "result_summary": "检索到 2 条主题素材：教室实拍、新生采访",
+      "result": {
+        "ok": true,
+        "tool": "search_assets",
+        "assets": [
+          {
+            "id": "asset-classroom",
+            "title": "教室实拍",
+            "themes": [
+              "开学季"
+            ],
+            "note": "校园空镜，可直接剪进预热视频"
+          },
+          {
+            "id": "asset-interview",
+            "title": "新生采访",
+            "themes": [
+              "开学季",
+              "社团招新"
+            ],
+            "note": "三段合成采访"
+          },
+          {
+            "id": "asset-caption",
+            "title": "通用字幕模板",
+            "themes": [
+              "全部"
+            ],
+            "note": "标题、字幕和片尾"
+          },
+          {
+            "id": "asset-poster",
+            "title": "活动海报底图",
+            "themes": [
+              "全部"
+            ],
+            "note": "可用于精简方案的单张海报"
+          }
+        ],
+        "summary": "检索到 2 条主题素材：教室实拍、新生采访"
+      }
+    },
+    {
+      "index": 2,
+      "tool": "generate_script",
+      "label": "生成脚本",
+      "args": {
+        "theme": "开学季",
+        "variant": "standard"
+      },
+      "status": "succeeded",
+      "result_summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+      "result": {
+        "ok": true,
+        "tool": "generate_script",
+        "variant": "standard",
+        "script": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+        "summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+      }
+    },
+    {
+      "index": 3,
+      "tool": "estimate_cost",
+      "label": "估算成本",
+      "args": {
+        "variant": "standard"
+      },
+      "status": "failed",
+      "result_summary": "已达到工具调用次数上限，任务未完成",
+      "result": {
+        "ok": false,
+        "tool": "estimate_cost",
+        "retryable": false,
+        "stop": true,
+        "error": "已达到工具调用次数上限，任务未完成",
+        "summary": "已达到工具调用次数上限，任务未完成"
+      }
+    }
+  ],
+  "tool_results": {
+    "assets": [
+      {
+        "id": "asset-classroom",
+        "title": "教室实拍",
+        "themes": [
+          "开学季"
+        ],
+        "note": "校园空镜，可直接剪进预热视频"
+      },
+      {
+        "id": "asset-interview",
+        "title": "新生采访",
+        "themes": [
+          "开学季",
+          "社团招新"
+        ],
+        "note": "三段合成采访"
+      },
+      {
+        "id": "asset-caption",
+        "title": "通用字幕模板",
+        "themes": [
+          "全部"
+        ],
+        "note": "标题、字幕和片尾"
+      },
+      {
+        "id": "asset-poster",
+        "title": "活动海报底图",
+        "themes": [
+          "全部"
+        ],
+        "note": "可用于精简方案的单张海报"
+      }
+    ],
+    "scripts": {
+      "standard": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。"
+    },
+    "estimates": {}
+  },
+  "total_cost": 0,
+  "saved_plan": null,
+  "plan_reused": false,
+  "final_message": "没有需要继续调用的工具，结束规划。",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "search_assets",
+      "args": {
+        "theme": "开学季"
+      },
+      "result_summary": "检索到 2 条主题素材：教室实拍、新生采访",
+      "next_action": "generate_script(theme=开学季, variant=standard)",
+      "reason": "还没有素材，先检索。"
+    },
+    {
+      "step": 2,
+      "tool": "generate_script",
+      "args": {
+        "theme": "开学季",
+        "variant": "standard"
+      },
+      "result_summary": "【标准方案】主题《开学季》。使用素材：教室实拍、新生采访、通用字幕模板、活动海报底图。产出预热、正片、复盘 3 条内容。",
+      "next_action": "estimate_cost(variant=standard)",
+      "reason": "按执行骨架先生成标准方案脚本。"
+    },
+    {
+      "step": 3,
+      "tool": "estimate_cost",
+      "args": {
+        "variant": "standard"
+      },
+      "result_summary": "已达到工具调用次数上限，任务未完成",
+      "next_action": "结束",
+      "reason": "标准脚本已生成，估算费用和耗时。"
+    }
+  ],
+  "tool_calls": 2,
+  "max_tool_calls": 2,
+  "today": "2026-11-09"
+}

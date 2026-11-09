@@ -1,0 +1,26 @@
+{
+  "unit": "模拟单位",
+  "variant_order": ["standard", "lean"],
+  "variants": {
+    "standard": {
+      "label": "标准方案",
+      "cost": 12,
+      "duration_days": 5,
+      "line_items": [
+        {"name": "素材整理", "amount": 2},
+        {"name": "脚本撰写", "amount": 3},
+        {"name": "制作与发布", "amount": 7}
+      ]
+    },
+    "lean": {
+      "label": "精简方案",
+      "cost": 8,
+      "duration_days": 2,
+      "line_items": [
+        {"name": "素材整理", "amount": 1},
+        {"name": "脚本撰写", "amount": 2},
+        {"name": "制作与发布", "amount": 5}
+      ]
+    }
+  }
+}
